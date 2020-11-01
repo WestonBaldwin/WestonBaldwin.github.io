@@ -40,12 +40,14 @@ paddle2.accel = .3;
 var ballstart = true;
 
 setTimeout(function(){
-	ballstart = false;
-	ball.accel = .1;
-	ball.pushUp(8);
-	ball.pushLeft();
-	ball.friction = 0;
-	ballstart = false;
+	if(ballstart = true){
+		ballstart = false;
+		ball.accel = .1;
+		ball.pushUp(8);
+		ball.pushLeft();
+		ball.friction = 0;
+		ballstart = false;
+	}
 },2000);
 	
 sjs.keyDown(UP_KEY, function(){
