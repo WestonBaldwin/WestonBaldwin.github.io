@@ -83,6 +83,10 @@ sjs.onHit("ball","paddle2", function(){
 });
 
 var lose = new Audio("Music/lose.mp3");
+	
+sjs.onhit("paddle2", ["left_screen", "right_screen"], function(x,y){
+	ball.stop();
+}
 
 sjs.onHit("ball","bottom_screen", function(){
 	lose.play();
