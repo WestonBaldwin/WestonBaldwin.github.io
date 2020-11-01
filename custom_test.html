@@ -49,17 +49,6 @@ setTimeout(function(){
 		ballstart = false;
 	}
 },2000);
-	
-sjs.keyDown(UP_KEY, function(){
-	if(ballstart == true){
-		ballstart = false;
-		ball.accel = .1;
-		ball.pushUp(8);
-		ball.pushLeft();
-		ball.friction = 0;
-		ballstart = false;
-	}
-})
 
 sjs.keyDown(LEFT_KEY, function(){
 	paddle2.pushLeft();
