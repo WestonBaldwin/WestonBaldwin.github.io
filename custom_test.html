@@ -50,21 +50,16 @@ sjs.keyDown(UP_KEY, function(){
 	}
 })
 
-var ballmoveableleft = true;
-var ballmoveableright = true;
-
 sjs.keyDown(LEFT_KEY, function(){
 	paddle2.pushLeft();
-	if(ballstart & ballmoveableleft == true){
+	if(ballstart == true){
 		ball.pushLeft();
 	}
-	ballmoveableright = true;
 });
 
 sjs.keyDown(RIGHT_KEY, function(){
 	paddle2.pushRight();
-	if(ballstart & ballmoveableright == true){
-		ball.pushRight();
+	if(ballstart == true){
 	}
 	ballmoveableright = true;
 });
@@ -90,8 +85,7 @@ sjs.onHit("ball","paddle2", function(){
 var lose = new Audio("Music/lose.mp3");
 	
 sjs.onHit("paddle2", ["left_screen","right_screen"], function(x,y){
-	ballmoveableleft = false;
-	ballmoveableright= false;
+	ball.stop();
 });
 
 sjs.onHit("ball","bottom_screen", function(){
