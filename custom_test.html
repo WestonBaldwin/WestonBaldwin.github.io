@@ -50,18 +50,23 @@ sjs.keyDown(UP_KEY, function(){
 	}
 })
 
+var ballmoveableleft = true;
+var ballmoveableright = true;
+
 sjs.keyDown(LEFT_KEY, function(){
 	paddle2.pushLeft();
-	if(ballstart == true){
+	if(ballstart & ballmoveableleft == true){
 		ball.pushLeft();
 	}
+	ballmoveableright = true;
 });
 
 sjs.keyDown(RIGHT_KEY, function(){
 	paddle2.pushRight();
-	if(ballstart == true){
+	if(ballstart & ballmoveableright == true){
 		ball.pushRight();
 	}
+	ballmoveableright = true;
 });
 
 //onhits
@@ -85,7 +90,8 @@ sjs.onHit("ball","paddle2", function(){
 var lose = new Audio("Music/lose.mp3");
 	
 sjs.onHit("paddle2", ["left_screen","right_screen"], function(x,y){
-	ball.stop();
+	ballmoveableleft = false;
+	ballmoveableright= false;
 });
 
 sjs.onHit("ball","bottom_screen", function(){
